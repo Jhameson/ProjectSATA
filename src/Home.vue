@@ -11,6 +11,7 @@ export default {
     Menu,
   },
 };
+
 </script>
 
 <style>
@@ -37,5 +38,24 @@ body {
     color: var(--color-darker);
 }
 
+.sombra {
+  box-shadow: 0px 2px 7px 0px rgba(63, 63, 63, 0.51);
+}
+
+.grid {
+  background: #ffd1c2;
+  border: 2px solid #f16234;
+}
+.color-primary {
+  background: var(--primary-color);
+}
+
+.color-secondary {
+  background: var(--secondary-color);
+}
+
+.color-light {
+  color: var(--color-light);
+}
 
 </style>

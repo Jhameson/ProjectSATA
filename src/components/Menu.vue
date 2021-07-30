@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark degrade-color sombra">
+    <nav class="navbar navbar-expand-lg navbar-dark degrade-color sombra teste">
       <div class="container p-0">
         <a class="navbar-brand d-flex align-items-center" href="#">
           <svg
@@ -31,9 +31,12 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="pages/OpcoesdeAcesso/index.html"
-                >Acessar</a
+              <router-link to="/acesso"
+                ><a class="nav-link active">Acessar</a></router-link
               >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Perfil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="#">Sobre</a>
@@ -53,30 +56,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-h1 {
-  font-weight: 900;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--color-light);
-}
-
-.grid {
-  background: #ffd1c2;
-  border: 2px solid #f16234;
-}
-
-.margem-auto {
-  margin: auto;
-}
-
-.sombra {
-  box-shadow: 0px 2px 7px 0px rgba(63, 63, 63, 0.51);
-}
 
 .degrade-color {
   background-image: linear-gradient(
@@ -84,36 +63,5 @@ a:hover {
     var(--primary-color),
     var(--secondary-color)
   );
-}
-.color-primary {
-  background: var(--primary-color);
-}
-
-.color-secondary {
-  background: var(--secondary-color);
-}
-
-.color-light {
-  color: var(--color-light);
-}
-
-.efeitoBtn:hover {
-  transform: scale(1.03);
-}
-
-.logotipo {
-  border-radius: 20px;
-}
-
-.alerta {
-  color: red;
-}
-
-/* pagina de acesso */
-.acesso {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
 }
 </style>
