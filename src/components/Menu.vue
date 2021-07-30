@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark degrade-color sombra teste">
+    <nav class="navbar navbar-expand-lg navbar-dark degrade-color sombra">
       <div class="container p-0">
         <a class="navbar-brand d-flex align-items-center" href="#">
           <svg
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 
 .degrade-color {
   background-image: linear-gradient(
@@ -63,5 +63,9 @@ export default {
     var(--primary-color),
     var(--secondary-color)
   );
+}
+
+.navbar a{
+  text-decoration: none;
 }
 </style>

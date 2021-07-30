@@ -39,39 +39,17 @@ export default {
 </script>
 
 <style>
-.margem-auto {
-  margin: auto;
+body {
+    background: #dfeef6;
+    color: var(--color-darker);
 }
-
-.color-primary {
-  background: var(--primary-color);
-}
-
-.color-secondary {
-  background: var(--secondary-color);
-}
-
-.color-light {
-  color: var(--color-light);
-}
-
-.efeitoBtn:hover {
-  transform: scale(1.03);
-}
+* {
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+  }
 
 .logotipo {
   border-radius: 20px;
 }
 
-.alerta {
-  color: red;
-}
-
-/* pagina de acesso */
-.acesso {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-}
 </style>

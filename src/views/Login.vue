@@ -36,6 +36,10 @@ export default {
 
 <style>
 
+body {
+    background: var(--background-color);
+    color: var(--color-darker);
+}
 a {
   text-decoration: none;
 }

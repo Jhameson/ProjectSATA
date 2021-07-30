@@ -1,10 +1,10 @@
 <template>
   <Menu />
-  <SATA/>
   <div class="col-4 m-auto sombra p-4 bg-body rounded mt-5">
+  <SATA/>
     <div class="row flex-column">
       <div class="text-center">
-        <h2>Opções de acesso</h2>
+        <h3>Opções de acesso</h3>
       </div>
       <div class="mt-3 acesso">
         <span>Já possui uma conta?</span>
@@ -14,7 +14,7 @@
       </div>
       <div class="mt-3 acesso">
         <span>Ainda não possui cadastro?</span>
-        <a class="btn color-secondary efeitoBtn">
+        <a class="btn color-primary efeitoBtn">
           <router-link to="/cadastro">Cadastrar-se</router-link>
         </a>
       </div>
@@ -34,11 +34,18 @@ export default {
 };
 </script>
 
-<style>
-h1 {
-  font-weight: 900;
-}
+<style scoped>
 
+.row a{
+    text-decoration: none;
+    color: #fff;
+}
+.color-primary {
+  background: var(--primary-color);
+}
+.color-secondary {
+  background: var(--secondary-color);
+}
 
 
 .efeitoBtn:hover {
@@ -51,7 +58,7 @@ h1 {
 
 .alerta {
   color: red;
-}
+} 
 
 /* pagina de acesso */
 .acesso {
@@ -59,5 +66,5 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin: auto;
-}
+} 
 </style>

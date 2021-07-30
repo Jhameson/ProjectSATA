@@ -30,7 +30,7 @@
           <router-link to="/filterlist">
             <button
               type="button"
-              class="btn color-secondary efeitoBtn"
+              class="btn btn-primary efeitoBtn"
               onclick="pesquisar()"
             >
               Buscar
@@ -42,35 +42,11 @@
   </div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
-
-.teste a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--color-light);
-}
-
-.color-secondary {
-  background: var(--secondary-color);
-}
-
-.color-light {
-  color: var(--color-light);
-}
-
-.efeitoBtn:hover {
-  transform: scale(1.03);
-}
-
 .alerta {
   color: red;
 }
-
 </style>

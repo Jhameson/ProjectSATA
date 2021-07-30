@@ -5,6 +5,7 @@ import HomePage from '../views/HomePage.vue';
 import Acesso from '../views/Acesso.vue';
 import Login from '../views/Login.vue';
 import Cadastro from '../views/Cadastro.vue';
+import Perfil from '../views/Perfil.vue';
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         path: "/cadastro",
         name: "Cadastro",
         component: Cadastro,
+    },
+    {
+        path: "/perfil",
+        name: "Perfil",
+        component: Perfil,
     },
 ];
 

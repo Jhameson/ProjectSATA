@@ -105,7 +105,7 @@
           </select>
         </div>
         <div class="col-12 mt-5">
-          <button type="submit" class="btn btn-primary">CADASTRAR</button>
+          <button type="submit" class="btn color-secondary efeitoBtn">CADASTRAR</button>
         </div>
       </form>
     </div>
@@ -122,67 +122,20 @@ export default {
 };
 </script>
 
-<style>
-.infor{
-     font-weight: bold;
-     padding-top: 30px;
-     border-bottom: 1px  solid #d4d4d4;
-}
-h1 {
-  font-weight: 900;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--color-light);
-}
-
-.grid {
-  background: #ffd1c2;
-  border: 2px solid #f16234;
-}
-
-.margem-auto {
-  margin: auto;
-}
-
-.sombra {
-  box-shadow: 0px 2px 7px 0px rgba(63, 63, 63, 0.51);
-}
-
-
-.color-primary {
-  background: var(--primary-color);
-}
+<style scoped>
 
 .color-secondary {
+    color: #fff;
   background: var(--secondary-color);
 }
 
-.color-light {
-  color: var(--color-light);
-}
 
 .efeitoBtn:hover {
   transform: scale(1.03);
 }
-
-.logotipo {
-  border-radius: 20px;
-}
-
-.alerta {
-  color: red;
-}
-
-/* pagina de acesso */
-.acesso {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
+ .infor{
+     font-weight: bold;
+     padding-top: 30px;
+     border-bottom: 1px  solid #d4d4d4;
 }
 </style>
