@@ -79,7 +79,7 @@
         <div class="col-12 infor">
           <label for="name" class="form-label">Local de Atentimento</label>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <label for="inputCity" class="form-label"
             >Cidade <strong class="error-color">*</strong></label
           >
@@ -91,7 +91,7 @@
             placeholder="Crateús"
           />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label for="inputState" class="form-label"
             >Estado <strong class="error-color">*</strong></label
           >
@@ -112,13 +112,14 @@
             placeholder="63700-000"
           />
         </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck" />
-            <label class="form-check-label" for="gridCheck">
-              Faço atendimentos em cidades vizinhas
-            </label>
-          </div>
+        <div class="col-md-3">
+          <label for="inputState" class="form-label"
+            >Atendimento em cidades vizinhas? <strong class="error-color">*</strong></label
+          >
+          <select id="inputState" class="form-select" v-model="atendeFora">
+            <option>Sim</option>
+            <option>Não</option>
+          </select>
         </div>
         <div class="col-12 infor">
           <label for="name" class="form-label">Informações de Serviço</label>
@@ -189,7 +190,7 @@ export default {
       cidade: null,
       estado: null,
       cep: null,
-      //atende fora
+      atendeFora: null,
       serv1: null,
       serv2: null,
       serv3: null,
@@ -206,7 +207,7 @@ export default {
         cidade: this.cidade,
         estado: this.estado,
         cep: this.cep,
-        //atende fora
+        atendeFora: this.atendeFora,
         serv1: this.serv1,
         serv2: this.serv2,
         serv3: this.this3,
