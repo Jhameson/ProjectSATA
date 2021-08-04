@@ -5,7 +5,6 @@
       <div class="col-12">
         <SATA />
         <p>Olá! Bem vindo(a) ao Sistema de Apoio a Trabalhadores Autônomos - SATA!</p>
-
         <p>
           Falta apenas um passo para você entrar no mundo SATA. Vamos lá! Digite a sua
           localização e o tipo de serviço que você está precisando e veja suas
