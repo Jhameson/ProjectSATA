@@ -4,7 +4,7 @@ import FilterList from '../views/FilterList.vue';
 import HomePage from '../views/HomePage.vue';
 import Acesso from '../views/Acesso.vue';
 import Login from '../views/Login.vue';
-import Cadastro from '../views/Cadastro.vue';
+import Cadastrar from '../views/Cadastrar.vue';
 import Perfil from '../views/Perfil.vue';
 
 const routes = [
@@ -30,8 +30,8 @@ const routes = [
     },
     {
         path: "/cadastro",
-        name: "Cadastro",
-        component: Cadastro,
+        name: "Cadastrar",
+        component: Cadastrar,
     },
     {
         path: "/perfil",
