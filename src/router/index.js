@@ -6,6 +6,7 @@ import Acesso from '../views/Acesso.vue';
 import Login from '../views/Login.vue';
 import Cadastro from '../views/Cadastro.vue';
 import Perfil from '../views/Perfil.vue';
+import NotFound from '../views/NotFound.vue';
 
 const routes = [
     {
@@ -38,6 +39,7 @@ const routes = [
         name: "Perfil",
         component: Perfil,
     },
+    { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound}
 ];
 
 const router = createRouter({
