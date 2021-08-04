@@ -16,7 +16,6 @@
           <img src="../assets/logotipo.jpeg" class="img-fluid logotipo sombra" />
         </div>
       </div>
-
       <Pesquisar />
     </div>
     <div class="row mt-5"></div>

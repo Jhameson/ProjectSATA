@@ -7,10 +7,8 @@
         alt="Imagem de capa do card"
       />
       <div class="card-body">
-        <h5 class="card-title">João Lucas</h5>
-        <h6 class="card-text">Horarios Disponiveis:</h6>
-        <p>Seg a Seg- Tempo Integral</p>
-        <p>R$ 25,00/hr</p>
+        <h5 class="card-title">Autônomo: {{ nome }}</h5>
+        <h6 class="card-text">Contato: {{ telefone1 }}</h6>
         <div class="d-flex justify-content-center">
           <router-link to="/perfil">
             <a href="../Perfil/index.html" class="btn color-secondary efeitoBtn"
@@ -23,15 +21,21 @@
   </div>
 </template>
 
-<script></script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<script>
+export default{
+  data(){
+  },
+  props: {
+    nome: String,
+    email: String,
+  },
+}
+</script>
 <style >
 .imagemT {
   width: 40%;
   margin: auto;
 }
-
 .fontSize {
   font-size: 20;
 }

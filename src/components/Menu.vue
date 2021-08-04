@@ -53,8 +53,6 @@ export default {
   name: "Menu",
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 .degrade-color {
@@ -64,7 +62,6 @@ export default {
     var(--secondary-color)
   );
 }
-
 .navbar a{
   text-decoration: none;
 }
