@@ -5,8 +5,10 @@
   <RefazerPesquisa />
   <div class="container sombra p-3 mb-5 bg-body rounded">
     <div class="row d-flex justify-content-evenly">
-      <div v-for="card in cards" :key="card.id">
-        <Card :nome="card.nome" :contato="card.telefone1"/>
+      <div v-for="card in cards" :key="card.cidade">
+        <div v-if="cidade == card.cidade && (serv1 == card.serv1 || serv2 == card.serv2 || serv3 == card.serv3)">
+          <Card :nome="card.nome" :contato="card.telefone1" />
+        </div>
       </div>
     </div>
   </div>
@@ -18,16 +20,18 @@ import Card from "../components/Card.vue";
 import RefazerPesquisa from "../components/RefazerPesquisa.vue";
 export default {
   name: "FilterList",
-  data(){
-     return{
-       cards:[],
-     }
+  data() {
+    return {
+      cards: [],
+      baseURI: "http://localhost:3000",
+    };
   },
-  //  mounted() {
-  //   User.listar().then((result) => {
-  //     this.posts = result.data;
-  //   });
-  // },
+  mounted() {
+    axios.get(this.baseURI + "/" + this.id).then((result) => {
+      console.log(result);
+      this.cards = result.data;
+    });
+  },
   components: {
     Menu,
     Card,

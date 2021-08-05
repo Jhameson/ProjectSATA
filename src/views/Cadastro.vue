@@ -207,6 +207,7 @@ export default {
       serv2: null,
       serv3: null,
       senha: null,
+      baseURI: "http://localhost:3000/funcionarios"
     };
   },
   methods: {
