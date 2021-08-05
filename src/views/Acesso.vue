@@ -6,6 +6,7 @@
       <div class="text-center">
         <h3>Opções de acesso</h3>
       </div>
+      
       <div class="mt-3 acesso">
         <span>Já possui uma conta?</span>
         <a class="btn color-secondary efeitoBtn">
