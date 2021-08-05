@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 :root {
   --primary-color: #8b45e7;
   --primary-color-darker: #652ead;

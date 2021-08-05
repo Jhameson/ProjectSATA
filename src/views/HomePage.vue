@@ -11,12 +11,20 @@
           preocupações indo embora!
         </p>
       </div>
-      <div class="col-lg-6 d-flex justify-content-center mt-5">
-        <div class="col-8">
-          <img src="../assets/logotipo.jpeg" class="img-fluid logotipo sombra" />
-        </div>
+      <div class="col-lg-12 d-flex justify-content-center mt-5 ">
+          <Logo/>
       </div>
-      <Pesquisar />
+      <div class="col-lg-12 d-flex justify-content-center mt-5 ">
+        <router-link to="/filterlist">
+          <button
+            type="button"
+            class="btn btn-primary efeitoBtn"
+            v-on:click="alerta = true"
+          >
+            Encontrar Autônomos
+          </button>
+        </router-link>
+      </div>
     </div>
     <div class="row mt-5"></div>
   </div>
@@ -24,30 +32,29 @@
 
 <script>
 import Menu from "../components/Menu.vue";
-import Pesquisar from "../components/Pesquisar.vue";
+import Logo from "../components/Logo.vue";
 import SATA from "../components/SATA.vue";
 
 export default {
   components: {
     Menu,
-    Pesquisar,
     SATA,
+    Logo,
   },
 };
 </script>
 
 <style>
 body {
-    background: #dfeef6;
-    color: var(--color-darker);
+  background: #dfeef6;
+  color: var(--color-darker);
 }
 * {
-    font-family: "Roboto", sans-serif;
-    box-sizing: border-box;
-  }
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
 
 .logotipo {
   border-radius: 20px;
 }
-
 </style>
