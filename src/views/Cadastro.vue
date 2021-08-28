@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-8">
           <label for="name" class="form-label"
-            >Nome Completo <strong class="error-color">*</strong></label
+            >Nome Completo:<strong class="error-color">*</strong></label
           >
           <input
             type="text"
@@ -26,12 +26,14 @@
         </div>
         <div class="col-md-2">
           <label for="name" class="form-label"
-            >Data de Nascimento <strong class="error-color">*</strong></label
+            >Data de Nascimento: <strong class="error-color">*</strong></label
           >
           <input type="date" class="form-control" id="name" v-model="data" />
         </div>
         <div class="col-md-2">
-          <label for="name" class="form-label">Sexo</label>
+          <label for="name" class="form-label"
+            >Sexo:<strong class="error-color">*</strong></label
+          >
           <select id="inputState" class="form-select" v-model="sexo">
             <option>Masculino</option>
             <option>Feminino</option>
@@ -43,7 +45,7 @@
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label"
-            >E-mail <strong class="error-color">*</strong></label
+            >E-mail: <strong class="error-color">*</strong></label
           >
           <input
             type="email"
@@ -80,39 +82,36 @@
           <label for="name" class="form-label">Local de Atentimento</label>
         </div>
         <div class="col-md-3">
-          <label for="inputCity" class="form-label"
-            >Cidade <strong class="error-color">*</strong></label
+          <label for="disabledSelect" class="form-label"
+            >Informe seu UF:<strong class="error-color">*</strong></label
           >
-          <input
-            type="text"
-            class="form-control"
-            id="inputCity"
-            v-model="cidade"
-            placeholder="Crateús"
-          />
-        </div>
-        <div class="col-md-3">
-          <label for="inputState" class="form-label"
-            >Estado <strong class="error-color">*</strong></label
+          <select
+            id="disabledSelect"
+            class="form-select"
+            @change="getcity"
+            v-model="selectedEstado"
           >
-          <select id="inputState" class="form-select" v-model="estado">
-            <option>Ceará</option>
-            <option>Bahia</option>
+            <option v-for="estado in estados" :value="estado" :key="estado.id">
+              {{ estado.nome }}
+            </option>
           </select>
         </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label"
-            >CEP <strong class="error-color">*</strong></label
+        <div class="col-md-6">
+          <label for="disabledSelect" class="form-label"
+            >Informe sua cidade:<strong class="error-color">*</strong></label
           >
-          <input
-            type="text"
-            class="form-control"
-            id="inputZip"
-            v-model="cep"
-            placeholder="63700-000"
-          />
+          <select id="disabledSelect" class="form-select" v-model="selectedCidade">
+            <option
+              v-for="municipio in municipios"
+              :value="municipio"
+              :key="municipio.id"
+            >
+              {{ municipio.nome }}
+            </option>
+          </select>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-3">
           <label for="inputState" class="form-label"
             >Atendimento em cidades vizinhas?
             <strong class="error-color">*</strong></label
@@ -155,6 +154,10 @@
           <label for="name" class="form-label">Credenciais</label>
         </div>
         <div class="col-md-4">
+          <label for="inputState" class="form-label"
+            >Digite uma senha:
+            <strong class="error-color">*</strong></label
+          >
           <input type="text" class="form-control" v-model="senha" />
         </div>
         <div class="col-12 mt-5">
@@ -193,21 +196,22 @@ export default {
   data() {
     return {
       alerta: false,
-
       nome: null,
       data: null,
       email: null,
       telefone1: null,
       telefone2: null,
-      cidade: null,
-      estado: null,
-      cep: null,
       atendeFora: null,
       serv1: null,
       serv2: null,
       serv3: null,
       senha: null,
-      baseURI: "http://localhost:3000/funcionarios"
+      selectedEstado: null,
+      selectedCidade: null,
+
+      estados: [],
+      municipios: [],
+      baseURI: "http://localhost:3000/funcionarios",
     };
   },
   methods: {
@@ -219,9 +223,8 @@ export default {
           email: this.email,
           telefone1: this.telefone1,
           telefone2: this.telefone2,
-          cidade: this.cidade,
-          estado: this.estado,
-          cep: this.cep,
+          selectedCidade: this.selectedCidade.nome,
+          selectedEstado: this.selectedEstado.nome,
           atendeFora: this.atendeFora,
           serv1: this.serv1,
           serv2: this.serv2,
@@ -232,6 +235,26 @@ export default {
           this.handleFileUpload(result.data.id);
         });
     },
+    getcity() {
+      axios
+        .get(
+          "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" +
+            this.selectedEstado.sigla +
+            "/municipios"
+        )
+        .then((res) => {
+          console.log(res);
+          this.municipios = [...res.data];
+        });
+    },
+  },
+  mounted() {
+    axios
+      .get("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+      .then((res) => {
+        console.log(res);
+        this.estados = [...res.data];
+      });
   },
   components: {
     Menu,
