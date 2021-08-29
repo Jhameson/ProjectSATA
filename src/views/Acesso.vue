@@ -1,6 +1,6 @@
 <template>
   <Menu />
-  <div class="col-4 m-auto sombra p-4 bg-body rounded mt-5">
+  <div class="col-4 m-auto sombra p-4 mycontainer rounded mt-5">
   <SATA/>
     <div class="row flex-column">
       <div class="text-center">
@@ -9,13 +9,13 @@
       
       <div class="mt-3 acesso">
         <span>Já possui uma conta?</span>
-        <a class="btn color-secondary efeitoBtn">
+        <a class="btn color-secondary efeitoBtn border mt-3">
           <router-link to="/login">Fazer Login</router-link>
         </a>
       </div>
       <div class="mt-3 acesso">
         <span>Ainda não possui cadastro?</span>
-        <a class="btn color-primary efeitoBtn">
+        <a class="btn color-primary efeitoBtn border mt-3">
           <router-link to="/cadastro">Cadastrar-se</router-link>
         </a>
       </div>

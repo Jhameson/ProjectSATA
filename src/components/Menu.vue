@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark degrade-color sombra">
+    <nav class="navbar navbar-expand-lg navbar-dark degrade-color sombra menu">
       <div class="container p-0">
         <router-link to="/">
           <a class="navbar-brand d-flex align-items-center">
@@ -23,7 +23,7 @@
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
+          data-bs-target="#navbarNavDropdown" 
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -38,7 +38,10 @@
               >
             </li>
             <li class="nav-item">
+              <router-link to="/meu-perfil">
               <a class="nav-link active" href="#">Perfil</a>
+              </router-link
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="#">Sobre</a>
@@ -65,5 +68,8 @@ export default {
 }
 .navbar a {
   text-decoration: none;
+}
+.menu{
+  height: 90px;
 }
 </style>

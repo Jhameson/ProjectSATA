@@ -32,10 +32,10 @@
           </div>
         </div>
         <div v-if="usuario && senha">
-          <a type="submit" class="btn btn-primary" @click="login" href="">ENTRAR</a>
+          <button type="submit" class="" @click="login">ENTRAR</button>
         </div>
         <div v-else>
-          <a class="btn btn-primary" @click="alerte= true">ENTRAR</a>
+          <button class="btn-sata efeitoBtn btn-three" @click="alerte= true">ENTRAR</button>
         </div>
       </form>
     </div>

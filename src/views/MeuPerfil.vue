@@ -1,7 +1,6 @@
 <template>
   <Menu />
-  <RefazerPesquisa />
-  <div class="container p-3 mb-5 bg-body rounded sombra">
+  <div class="container p-3 mb-5 mt-5 bg-body rounded sombra">
     <!-- MINHA ÁREA -->
     <div class="row">
       <div class="rol-12">
@@ -25,18 +24,15 @@
           ><strong>Serviço:</strong> {{ servicoTres }}</label
         >
         <label class="col-md-6 col-form-label"
-          ><strong>Telefone:</strong> {{telefone}}</label
+          ><strong>Telefone:</strong> {{ telefone }}</label
         >
       </div>
     </div>
     <div class="row d-flex justify-content-center mt-5">
       <div class="col-2 d-flex justify-content-center">
-        <a
-          type="button"
-          class="btn btn-success"
-          href="https://api.whatsapp.com/send?phone=55123456789"
-          >WhatsApp</a
-        >
+        <button type="submit" class="color-secondary btn-sata efeitoBtn" v-on:click="inserirUser">
+          Editar
+        </button>
       </div>
     </div>
   </div>
@@ -44,20 +40,18 @@
 
 <script>
 import Menu from "../components/Menu.vue";
-import RefazerPesquisa from "../components/RefazerPesquisa.vue";
 
 export default {
-  data(){
-    return{
+  data() {
+    return {
       servicoUm: "",
       servicoDois: "",
       nome: "",
       telefone: "",
-    }
+    };
   },
   components: {
     Menu,
-    RefazerPesquisa,
   },
 };
 </script>

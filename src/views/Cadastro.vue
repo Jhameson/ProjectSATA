@@ -1,6 +1,6 @@
 <template>
   <Menu />
-  <div class="container bg-body sombra p-5 mt-5 mb-5">
+  <div class="container bg-body sombra p-5 mt-5 mb-5 rounded">
     <div class="col-12 text-center">
       <h2>Cadastro trabalhadores(as) autônomos(as)</h2>
     </div>
@@ -155,8 +155,7 @@
         </div>
         <div class="col-md-4">
           <label for="inputState" class="form-label"
-            >Digite uma senha:
-            <strong class="error-color">*</strong></label
+            >Digite uma senha: <strong class="error-color">*</strong></label
           >
           <input type="text" class="form-control" v-model="senha" />
         </div>
@@ -165,7 +164,7 @@
             <!-- <router-link to="/"> -->
             <button
               type="submit"
-              class="btn color-secondary efeitoBtn"
+              class="btn-color-one color-secondary efeitoBtn"
               v-on:click="inserirUser"
             >
               Cadastrar
@@ -175,7 +174,7 @@
           <div v-else>
             <button
               type="button"
-              class="btn color-secondary efeitoBtn"
+              class="btn-color-one color-secondary efeitoBtn"
               v-on:click="alerta = true"
             >
               Cadastrar

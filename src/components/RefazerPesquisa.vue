@@ -1,11 +1,8 @@
 <template>
   <div class="container sombra mt-5 p-3 mb-3 bg-body rounded">
     <div class="row">
-      <span class="col-md-8 fontSize"
-        >Resultados para: "Serviços Gerais" em Crateús/CE
-      </span>
 
-      <a href="../../index.html" class="btn col-3 color-secondary efeitoBtn">
+      <a href="../../index.html" class=" m-auto text-center col-3 btn-one btn-sata efeitoBtn" style="text-decoration: none; color: black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

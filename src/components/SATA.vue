@@ -10,7 +10,11 @@ export default {
 
 <style scoped>
 h1 {
+  font-family: "Orbitron", sans-serif;
   padding: 20px;
+  font-size: 4rem;
   font-weight: 700;
+  color: #fff;
+  border-bottom: 2px solid;
 }
 </style>

@@ -3,9 +3,14 @@
 
   <!-- MINHA ÁREA -->
   <!-- <RefazerPesquisa /> -->
-  <div class="container mb-5">
+  <div class="container mb-5 mycontainer sombra rounded">
     <!-- <Pesquisar /> -->
-    <h2 class="text-center mb-5 mt-5">Pesquisar Serviço</h2>
+    <h2
+      class="text-center mb-5 mt-5"
+      style="font-family: /'Orbitron'/, sans-serif; padding-top: 30px"
+    >
+      Pesquisar Serviço
+    </h2>
     <form>
       <fieldset>
         <div class="col-12" v-if="alerta">
@@ -51,13 +56,13 @@
         <div class="mb-3 d-flex justify-content-center">
           <div v-if="selectedEstado && selectedCidade && servico">
             <router-link to="/filterlist">
-              <button type="submit" class="btn btn-primary efeitoBtn">Buscar</button>
+              <button type="submit" class="btn-color-one efeitoBtn">Buscar</button>
             </router-link>
           </div>
           <div v-else>
             <button
               type="button"
-              class="btn btn-primary efeitoBtn"
+              class="btn-one efeitoBtn btn-sata"
               v-on:click="alerta = true"
             >
               Buscar
@@ -67,8 +72,9 @@
       </fieldset>
     </form>
   </div>
-  <div class="container sombra p-3 mb-5 bg-body rounded">
+  <div class="container mycontainer sombra p-3 mb-5 rounded">
     <h3 v-if="buscar">{{}} de {{}}</h3>
+
     <div class="row d-flex justify-content-evenly">
       <div v-for="card in cards" :key="card.cidade">
         <div
@@ -111,7 +117,7 @@ export default {
         // this.post = result.data;
       });
     },
-     getcity() {
+    getcity() {
       axios
         .get(
           "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" +
