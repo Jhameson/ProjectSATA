@@ -194,6 +194,8 @@ export default {
   data() {
     return {
       alerta: false,
+
+      //cadastrar esses
       nome: null,
       data: null,
       email: null,
@@ -206,6 +208,7 @@ export default {
       senha: null,
       selectedEstado: null,
       selectedCidade: null,
+      //
 
       estados: [],
       municipios: [],
