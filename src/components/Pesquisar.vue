@@ -38,7 +38,7 @@
           </div>
           <div class="col-12 d-flex justify-content-center mb-2">
             <div v-if="cidade">
-                <router-link to="/filterlist">
+                <router-link to="/search">
                   <button
                     type="submit"
                     class="btn btn-primary efeitoBtn"

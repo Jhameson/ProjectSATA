@@ -1,6 +1,6 @@
 import { createWebHashHistory, createRouter } from "vue-router";
 
-import FilterList from '../views/FilterList.vue';
+import Search from '../views/Search.vue';
 import HomePage from '../views/HomePage.vue';
 import Acesso from '../views/Acesso.vue';
 import Login from '../views/Login.vue';
@@ -18,9 +18,9 @@ const routes = [
         component: HomePage,
     },
     {
-        path: "/filterlist",
-        name: "Filter List",
-        component: FilterList,
+        path: "/search",
+        name: "Search",
+        component: Search,
     },
     {
         path: "/acesso",

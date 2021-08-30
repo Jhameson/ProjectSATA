@@ -13,7 +13,7 @@
       </div>
 
       <div class="col-lg-12 d-flex justify-content-center mt-5">
-        <router-link to="/filterlist">
+        <router-link to="/search">
           <button type="button" class="btn-four btn-sata efeitoBtn" v-on:click="alerta = true">
             Encontrar Autônomos
           </button>

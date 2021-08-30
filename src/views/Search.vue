@@ -18,7 +18,7 @@
         </div>
         <div class="row">
           <div class="col-4">
-            <label for="disabledSelect" class="form-label">Informe seu UF:</label>
+            <label for="disabledSelect" class="form-label">Informe seu UF: </label>
             <select
               id="disabledSelect"
               class="form-select"
@@ -47,7 +47,7 @@
         {{servico}} -->
         <div class="mt-2">
           <label for="disabledSelect" class="form-label">Informe o Serviço</label>
-          <select id="disabledSelect" class="form-select" v-model="servico">
+          <select id="disabledSelect" class="form-select" v-model="selectedServico">
             <option>Faxineira</option>
           </select>
         </div>
@@ -72,49 +72,33 @@
       </fieldset>
     </form>
   </div>
-  <div class="container p-3 mb-5 mycontainer rounded sombra">
+  <div
+    class="container p-3 mb-5 mycontainer rounded sombra d-flex flex-wrap justify-content-evenly"
+  >
     <!-- MINHA ÁREA -->
-    <div class="bg-body rounded p-2 mycards">
-      <div class="row">
-        <div class="rol-12">
-          <h4>Serviço: {{ servico }}</h4>
-          <span>Nome: {{ nome }}</span>
-        </div>
+    <div class="card mycards mt-3 m-5" style="width: 18rem">
+      <img
+        src="https://fakeimg.pl/250x250/"
+        class="card-img-top rounded-circle"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Nome:{{}}</h5>
+        <label for="">Atende fora: {{}}</label>
       </div>
-      <div class="row mt-5">
-        <div class="col-md-3 d-flex">
-          <img
-            src="https://fakeimg.pl/200/"
-            class="img-fluid rounded-circle margem-auto"
-          />
-        </div>
-        <div class="col-8 ms-5">
-          <label class="col-md-12 col-form-label"
-            ><strong>Nome:</strong> {{ nome }}</label
-          >
-          <label class="col-md-4 col-form-label"
-            ><strong>Serviço:</strong> {{ servicoUm }}</label
-          >
-          <label class="col-md-4 col-form-label"
-            ><strong>Serviço:</strong> {{ servicoDois }}</label
-          >
-          <label class="col-md-4 col-form-label"
-            ><strong>Serviço:</strong> {{ servicoTres }}</label
-          >
-          <label class="col-md-6 col-form-label"
-            ><strong>Telefone:</strong> {{ telefone }}</label
-          >
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center mt-5">
-        <div class="col-2 d-flex justify-content-center">
-          <a
-            type="button"
-            class="btn btn-success"
-            href="https://api.whatsapp.com/send?phone=55123456789"
-            >WhatsApp</a
-          >
-        </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Telefone: {{}}</li>
+        <li class="list-group-item">Serviço 1: {{}}</li>
+        <li class="list-group-item">Serviço 2: {{}}</li>
+        <li class="list-group-item">Serviço 3: {{}}</li>
+      </ul>
+      <div class="card-body text-center">
+        <a
+          type="button"
+          class="btn btn-success"
+          href="https://api.whatsapp.com/send?phone=981435703"
+          >WhatsApp</a
+        >
       </div>
     </div>
   </div>
@@ -130,11 +114,22 @@ export default {
   name: "FilterList",
   data() {
     return {
+      /* variaveis auxiliares */
       cidade: null,
-      servico: null,
       alerta: false,
       estados: [],
       municipios: [],
+
+      /* renderizadas na pagina */
+      nome: null,
+      telefone1: null,
+      atendeFora: null,
+      serv1: null,
+      serv2: null,
+      serv3: null,
+
+      /* Variaveis que serão usadas para fazer a pesquisa no banco */
+      selectedServico: null,
       selectedEstado: null,
       selectedCidade: null,
     };
