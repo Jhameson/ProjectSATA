@@ -174,7 +174,7 @@
           <div v-else>
             <button
               type="button"
-              class="btn-color-one color-secondary efeitoBtn"
+              class="color-secondary btn-sata efeitoBtn"
               v-on:click="alerta = true"
             >
               Cadastrar
@@ -189,7 +189,6 @@
 <script>
 import Menu from "../components/Menu.vue";
 import axios from "axios";
-import InputMask from "primevue/inputmask";
 
 export default {
   data() {
@@ -261,7 +260,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .color-secondary {
   color: #fff;
   background: var(--secondary-color);

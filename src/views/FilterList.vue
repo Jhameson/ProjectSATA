@@ -72,18 +72,48 @@
       </fieldset>
     </form>
   </div>
-  <div class="container mycontainer sombra p-3 mb-5 rounded">
-    <h3 v-if="buscar">{{}} de {{}}</h3>
-
-    <div class="row d-flex justify-content-evenly">
-      <div v-for="card in cards" :key="card.cidade">
-        <div
-          v-if="
-            cidade == card.cidade &&
-            (serv1 == card.serv1 || serv2 == card.serv2 || serv3 == card.serv3)
-          "
-        >
-          <Card :nome="card.nome" :contato="card.telefone1" />
+  <div class="container p-3 mb-5 mycontainer rounded sombra">
+    <!-- MINHA ÁREA -->
+    <div class="bg-body rounded p-2 mycards">
+      <div class="row">
+        <div class="rol-12">
+          <h4>Serviço: {{ servico }}</h4>
+          <span>Nome: {{ nome }}</span>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-3 d-flex">
+          <img
+            src="https://fakeimg.pl/200/"
+            class="img-fluid rounded-circle margem-auto"
+          />
+        </div>
+        <div class="col-8 ms-5">
+          <label class="col-md-12 col-form-label"
+            ><strong>Nome:</strong> {{ nome }}</label
+          >
+          <label class="col-md-4 col-form-label"
+            ><strong>Serviço:</strong> {{ servicoUm }}</label
+          >
+          <label class="col-md-4 col-form-label"
+            ><strong>Serviço:</strong> {{ servicoDois }}</label
+          >
+          <label class="col-md-4 col-form-label"
+            ><strong>Serviço:</strong> {{ servicoTres }}</label
+          >
+          <label class="col-md-6 col-form-label"
+            ><strong>Telefone:</strong> {{ telefone }}</label
+          >
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center mt-5">
+        <div class="col-2 d-flex justify-content-center">
+          <a
+            type="button"
+            class="btn btn-success"
+            href="https://api.whatsapp.com/send?phone=55123456789"
+            >WhatsApp</a
+          >
         </div>
       </div>
     </div>
@@ -155,5 +185,8 @@ export default {
 body {
   background: var(--background-color);
   color: var(--color-darker);
+}
+.mycards {
+  color: var(--font-dark);
 }
 </style>

@@ -38,13 +38,17 @@
               >
             </li>
             <li class="nav-item">
-              <router-link to="/meu-perfil">
-              <a class="nav-link active" href="#">Perfil</a>
+            <router-link to="/portal"
+                >
+              <a class="nav-link active" href="#">Portal sata</a>
               </router-link
               >
             </li>
             <li class="nav-item">
+            <router-link to="/sobre"
+                >
               <a class="nav-link active" href="#">Sobre</a>
+              </router-link>
             </li>
           </ul>
         </div>

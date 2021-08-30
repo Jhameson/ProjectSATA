@@ -6,7 +6,9 @@ import Acesso from '../views/Acesso.vue';
 import Login from '../views/Login.vue';
 import Cadastro from '../views/Cadastro.vue';
 import Perfil from '../views/Perfil.vue';
-import MeuPerfil from '../views/MeuPerfil.vue';
+import Portal from '../views/Portal.vue';
+import Sobre from '../views/Sobre.vue';
+
 import NotFound from '../views/NotFound.vue';
 
 const routes = [
@@ -41,10 +43,16 @@ const routes = [
         component: Perfil,
     },
     {
-        path: "/meu-perfil",
-        name: "Meu Perfil",
-        component: MeuPerfil,
+        path: "/portal",
+        name: "Portal",
+        component: Portal,
     },
+    {
+        path: "/sobre",
+        name: "Sobre",
+        component: Sobre,
+    },
+
     { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound}
 ];
 
