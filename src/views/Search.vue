@@ -88,9 +88,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Telefone: {{}}</li>
-        <li class="list-group-item">Serviço 1: {{}}</li>
-        <li class="list-group-item">Serviço 2: {{}}</li>
-        <li class="list-group-item">Serviço 3: {{}}</li>
+        <li class="list-group-item">Serviço: {{}}</li>
       </ul>
       <div class="card-body text-center">
         <a
@@ -115,18 +113,19 @@ export default {
   data() {
     return {
       /* variaveis auxiliares */
-      cidade: null,
+      cidade: "",
+      servico: "",
       alerta: false,
       estados: [],
       municipios: [],
+      baseURI: "http://localhost:3000/funcionarios",
 
       /* renderizadas na pagina */
       nome: null,
       telefone1: null,
       atendeFora: null,
-      serv1: null,
-      serv2: null,
-      serv3: null,
+      serv: null,
+
 
       /* Variaveis que serão usadas para fazer a pesquisa no banco */
       selectedServico: null,
@@ -137,7 +136,7 @@ export default {
   methods: {
     fetchByServ() {
       buscar = true;
-      axios.get(this.baseURI + "/funcionarios/" + this.cidade).then((result) => {
+      axios.get(this.baseURI + "/" + this.selectedCidade).then((result) => {
         console.log(result);
         // this.post = result.data;
       });

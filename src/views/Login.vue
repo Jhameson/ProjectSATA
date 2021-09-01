@@ -20,8 +20,8 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Username"
-                v-model="login"
+                placeholder="Usuário"
+                v-model="usuario"
               />
             </div>
             <div class="input-group mt-4 col-sm-12">
@@ -31,15 +31,15 @@
               <input
                 type="password"
                 class="form-control"
-                placeholder="Password"
-                v-model="password"
+                placeholder="Senha"
+                v-model="senha"
               />
             </div>
           </div>
         </div>
         <div class="text-center">
           <div v-if="usuario && senha">
-            <button type="submit" class="btn-sata efeitoBtn btn-three" @click="login">
+            <button type="submit" class="btn-sata efeitoBtn btn-three" @click="logar">
               ENTRAR
             </button>
           </div>
@@ -176,29 +176,12 @@
         <label for="inputCity" class="form-label"
           >Serviço 01: <strong class="error-color">*</strong></label
         >
-        <select id="inputState" class="form-select" v-model="serv1">
+        <select id="inputState" class="form-select" v-model="serv">
           <option>algo...</option>
           <option>algo...</option>
           <option>algo...</option>
         </select>
       </div>
-      <div class="col-md-4">
-        <label for="inputCity" class="form-label">Serviço 02:</label>
-        <select id="inputState" class="form-select" v-model="serv2">
-          <option>algo...</option>
-          <option>algo...</option>
-          <option>algo...</option>
-        </select>
-      </div>
-      <div class="col-md-4">
-        <label for="inputCity" class="form-label">Serviço 03:</label>
-        <select id="inputState" class="form-select" v-model="serv3">
-          <option>algo...</option>
-          <option>algo...</option>
-          <option>algo...</option>
-        </select>
-      </div>
-
       <div class="col-12 mt-5">
         <div v-if="nome || data || email || telefone || cidade || cep">
           <!-- <router-link to="/"> -->
@@ -233,6 +216,13 @@ import axios from "axios";
 export default {
   data() {
     return {
+      
+      
+      nome: "",
+      senha: "",
+      baseLogin: "http://localhost:3000/users/login",
+      
+      
       alerta: false,
       nome: null,
       data: null,
@@ -240,9 +230,7 @@ export default {
       telefone1: null,
       telefone2: null,
       atendeFora: null,
-      serv1: null,
-      serv2: null,
-      serv3: null,
+      serv: null,
       senha: null,
       selectedEstado: null,
       selectedCidade: null,
@@ -253,6 +241,29 @@ export default {
     };
   },
   methods: {
+
+    //Métodos relacionados ao login - Início
+    logar: function() {
+      axios.post(this.baseLogin, {
+        nome: this.nome,
+        senha: this.senha,
+      },
+      { withCredentials: true })
+      .then((result) => {
+        let userId = this.getCookie("userId");
+        if(userId){
+          localStorage.setItem("nome", JSON.stringfy(result.data));
+        }
+        this.$router.go();
+      });
+    },
+    getCookie(nome) {
+      let match = document.cookie.match(new RegExp(name + "=([^;]+)"));
+        if(match) return match[1];
+        return;
+    },
+    //Métodos relacionados ao login - Fim
+    
     inserirUser() {
       axios
         .post(this.baseURI, {

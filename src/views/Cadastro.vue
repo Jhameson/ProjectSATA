@@ -13,27 +13,15 @@
           <label for="name" class="form-label">Informações pessoais</label>
         </div>
         <div class="col-md-8">
-          <label for="name" class="form-label"
-            >Nome Completo:<strong class="error-color">*</strong></label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="Antônia Maria Souza"
-            v-model="nome"
-          />
+          <label for="name" class="form-label">Nome Completo:<strong class="error-color">*</strong></label>
+          <input type="text" class="form-control" id="name" placeholder="Antônia Maria Souza" v-model="nome"/>
         </div>
         <div class="col-md-2">
-          <label for="name" class="form-label"
-            >Data de Nascimento: <strong class="error-color">*</strong></label
-          >
+          <label for="name" class="form-label">Data de Nascimento: <strong class="error-color">*</strong></label>
           <input type="date" class="form-control" id="name" v-model="data" />
         </div>
         <div class="col-md-2">
-          <label for="name" class="form-label"
-            >Sexo:<strong class="error-color">*</strong></label
-          >
+          <label for="name" class="form-label">Sexo:<strong class="error-color">*</strong></label>
           <select id="inputState" class="form-select" v-model="sexo">
             <option>Masculino</option>
             <option>Feminino</option>
@@ -44,39 +32,16 @@
           <label for="name" class="form-label">Informações para contato</label>
         </div>
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label"
-            >E-mail: <strong class="error-color">*</strong></label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="inputEmail4"
-            placeholder="Ex.: fulano.sata@gmail.com"
-            v-model="email"
-          />
+          <label for="inputEmail4" class="form-label">E-mail: <strong class="error-color">*</strong></label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex.: fulano.sata@gmail.com" v-model="email"/>
         </div>
-
         <div class="col-3">
-          <label for="inputAddress" class="form-label"
-            >Telefone para contato 01: <strong class="error-color">*</strong></label
-          >
-          <input
-            type="text"
-            class="form-control pl-0"
-            id="inputAddress"
-            placeholder="(99) 9 9999-9999"
-            v-model="telefone01"
-          />
+          <label for="inputAddress" class="form-label">Telefone para contato 01: <strong class="error-color">*</strong></label>
+          <input type="text" class="form-control pl-0" id="inputAddress" placeholder="(99) 9 9999-9999" v-model="telefone01"/>
         </div>
         <div class="col-3">
           <label for="inputAddress" class="form-label">Telefone para contato 02:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="(99) 9 9999-9999"
-            v-model="telefone02"
-          />
+          <input type="text" class="form-control" id="inputAddress" placeholder="(99) 9 9999-9999" v-model="telefone02"/>
         </div>
         <div class="col-12 infor">
           <label for="name" class="form-label">Local de Atentimento</label>
@@ -85,12 +50,7 @@
           <label for="disabledSelect" class="form-label"
             >Informe seu UF:<strong class="error-color">*</strong></label
           >
-          <select
-            id="disabledSelect"
-            class="form-select"
-            @change="getcity"
-            v-model="selectedEstado"
-          >
+          <select id="disabledSelect" class="form-select" @change="getcity" v-model="selectedEstado">
             <option v-for="estado in estados" :value="estado" :key="estado.id">
               {{ estado.nome }}
             </option>
@@ -98,14 +58,9 @@
         </div>
         <div class="col-md-6">
           <label for="disabledSelect" class="form-label"
-            >Informe sua cidade:<strong class="error-color">*</strong></label
-          >
+            >Informe sua cidade:<strong class="error-color">*</strong></label>
           <select id="disabledSelect" class="form-select" v-model="selectedCidade">
-            <option
-              v-for="municipio in municipios"
-              :value="municipio"
-              :key="municipio.id"
-            >
+            <option v-for="municipio in municipios" :value="municipio" :key="municipio.id">
               {{ municipio.nome }}
             </option>
           </select>
@@ -125,38 +80,22 @@
           <label for="name" class="form-label">Informações de Serviço</label>
         </div>
         <div class="col-md-4">
-          <label for="inputCity" class="form-label"
-            >Serviço 01: <strong class="error-color">*</strong></label
-          >
-          <select id="inputState" class="form-select" v-model="serv1">
+          <label for="inputCity" class="form-label">Serviço: <strong class="error-color">*</strong></label>
+          <select id="inputState" class="form-select" v-model="serv">
             <option>algo...</option>
             <option>algo...</option>
             <option>algo...</option>
           </select>
-        </div>
-        <div class="col-md-4">
-          <label for="inputCity" class="form-label">Serviço 02:</label>
-          <select id="inputState" class="form-select" v-model="serv2">
-            <option>algo...</option>
-            <option>algo...</option>
-            <option>algo...</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <label for="inputCity" class="form-label">Serviço 03:</label>
-          <select id="inputState" class="form-select" v-model="serv3">
-            <option>algo...</option>
-            <option>algo...</option>
-            <option>algo...</option>
-          </select>
-        </div>
+        </div>       
         <div class="col-12 infor">
           <label for="name" class="form-label">Credenciais</label>
         </div>
         <div class="col-md-4">
-          <label for="inputState" class="form-label"
-            >Digite uma senha: <strong class="error-color">*</strong></label
-          >
+          <label for="inputState" class="form-label">Digite um nome de usuário: <strong class="error-color">*</strong></label>
+          <input type="text" class="form-control" v-model="usuario" />
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Digite uma senha: <strong class="error-color">*</strong></label>
           <input type="text" class="form-control" v-model="senha" />
         </div>
         <div class="col-12 mt-5">
@@ -172,11 +111,7 @@
             <!-- </router-link> -->
           </div>
           <div v-else>
-            <button
-              type="button"
-              class="color-secondary btn-sata efeitoBtn"
-              v-on:click="alerta = true"
-            >
+            <button type="button" class="color-secondary btn-sata efeitoBtn" v-on:click="alerta = true">
               Cadastrar
             </button>
           </div>
@@ -200,9 +135,7 @@ export default {
       telefone1: null,
       telefone2: null,
       atendeFora: null,
-      serv1: null,
-      serv2: null,
-      serv3: null,
+      serv: null,
       senha: null,
       selectedEstado: null,
       selectedCidade: null,
