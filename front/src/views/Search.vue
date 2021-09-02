@@ -18,21 +18,33 @@
         </div>
         <div class="row">
           <div class="col-4">
-            <label for="disabledSelect" class="form-label">Informe seu UF: </label>
+            <label for="disabledSelect" class="form-label"
+              >Informe seu UF:
+            </label>
             <select
               id="disabledSelect"
               class="form-select"
               @change="getcity"
               v-model="selectedEstado"
             >
-              <option v-for="estado in estados" :value="estado" :key="estado.id">
+              <option
+                v-for="estado in estados"
+                :value="estado"
+                :key="estado.id"
+              >
                 {{ estado.nome }}
               </option>
             </select>
           </div>
           <div class="col-8">
-            <label for="disabledSelect" class="form-label">Informe sua cidade</label>
-            <select id="disabledSelect" class="form-select" v-model="selectedCidade">
+            <label for="disabledSelect" class="form-label"
+              >Informe sua cidade</label
+            >
+            <select
+              id="disabledSelect"
+              class="form-select"
+              v-model="selectedCidade"
+            >
               <option
                 v-for="municipio in municipios"
                 :value="municipio"
@@ -46,18 +58,52 @@
         <!-- {{cidade}}
         {{servico}} -->
         <div class="mt-2">
-          <label for="disabledSelect" class="form-label">Informe o Serviço</label>
-          <select id="disabledSelect" class="form-select" v-model="selectedServico">
-            <option>Faxineira</option>
+          <label for="disabledSelect" class="form-label"
+            >Informe o Serviço</label
+          >
+          <select
+            id="disabledSelect"
+            class="form-select"
+            v-model="selectedServico"
+          >
+            <option>Agricultor</option>
+            <option>Alfaiate</option>
+            <option>Artesão</option>
+            <option>Babá</option>
+            <option>Cabeleleiro</option>
+            <option>Carpinteiro</option>
+            <option>Chaveiro</option>
+            <option>Confeiteira</option>
+            <option>Ponsultor</option>
+            <option>Cuidador de pets</option>
+            <option>Diarista</option>
+            <option>Doceira</option>
+            <option>Eletricista</option>
+            <option>Encanador</option>
+            <option>Enfermeiro</option>
+            <option>Leiteiro</option>
+            <option>Fotógrafo</option>
+            <option>Manicure</option>
+            <option>Mecânico</option>
+            <option>Metalúrgico</option>
+            <option>Organizador de festa</option>
+            <option>Pedreiro</option>
+            <option>Taxista</option>
+            <option>Reforço Escolar</option>
+            <option>Vaqueiro</option>
           </select>
         </div>
 
         <div class="alerta mb-3"></div>
         <div class="mb-3 d-flex justify-content-center">
-          <div v-if="selectedEstado && selectedCidade && servico">
-            <router-link to="/filterlist">
-              <button type="submit" class="btn-color-one efeitoBtn">Buscar</button>
-            </router-link>
+          <div v-if="selectedEstado && selectedCidade && selectedServico">
+            <button
+              type="submit"
+              class="btn-one efeitoBtn btn-sata"
+              @click="fetchByServ"
+            >
+              Buscar
+            </button>
           </div>
           <div v-else>
             <button
@@ -73,30 +119,47 @@
     </form>
   </div>
   <div
-    class="container p-3 mb-5 mycontainer rounded sombra d-flex flex-wrap justify-content-evenly"
+    class="
+      container
+      p-3
+      mb-5
+      mycontainer
+      rounded
+      sombra
+      d-flex
+      flex-wrap
+      justify-content-evenly
+    "
   >
     <!-- MINHA ÁREA -->
-    <div class="card mycards mt-3 m-5" style="width: 18rem">
-      <img
-        src="https://fakeimg.pl/250x250/"
-        class="card-img-top rounded-circle"
-        alt="..."
-      />
-      <div class="card-body">
-        <h5 class="card-title">Nome:{{}}</h5>
-        <label for="">Atende fora: {{}}</label>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Telefone: {{}}</li>
-        <li class="list-group-item">Serviço: {{}}</li>
-      </ul>
-      <div class="card-body text-center">
-        <a
-          type="button"
-          class="btn btn-success"
-          href="https://api.whatsapp.com/send?phone=981435703"
-          >WhatsApp</a
-        >
+    <div v-for="trabalhador in trabalhadores" :key="trabalhador.id">
+      <div v-if="selectedServico == trabalhador.servico">
+
+      
+      <div class="card mycards mt-3 m-5" style="width: 18rem">
+        <img
+          src="https://fakeimg.pl/250x250/"
+          class="card-img-top rounded-circle"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Nome:{{ trabalhador.nomecompleto }}</h5>
+          <label v-if="trabalhador.cidade_vizinha">Atende fora: Sim</label>
+          <label v-else>Atende fora: Não</label>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Telefone: {{ trabalhador.telefone_um }}
+          </li>
+          <li class="list-group-item">Serviço: {{ trabalhador.servico }}</li>
+        </ul>
+        <div class="card-body text-center">
+          <a
+            type="button"
+            class="btn btn-success"
+            href="https://api.whatsapp.com/send?phone=88994473398">WhatsApp</a>
+        </div>
+        </div>
       </div>
     </div>
   </div>
@@ -118,14 +181,14 @@ export default {
       alerta: false,
       estados: [],
       municipios: [],
-      baseURI: "http://localhost:3000/funcionarios",
+      trabalhadores: [],
+      baseURI: "http://localhost:3000/trabalhadores",
 
       /* renderizadas na pagina */
       nome: null,
       telefone1: null,
       atendeFora: null,
       serv: null,
-
 
       /* Variaveis que serão usadas para fazer a pesquisa no banco */
       selectedServico: null,
@@ -135,11 +198,20 @@ export default {
   },
   methods: {
     fetchByServ() {
-      buscar = true;
-      axios.get(this.baseURI + "/" + this.selectedCidade).then((result) => {
-        console.log(result);
-        // this.post = result.data;
-      });
+      axios
+        .get(
+          this.baseURI +
+            "/" +
+            "?cidade=" +
+            this.selectedCidade.nome +
+            "&estado=" +
+            this.selectedEstado.nome +
+            "&servico=" +
+            this.selectedServico
+        )
+        .then((result) => {
+          this.trabalhadores = [...result.data];
+        });
     },
     getcity() {
       axios
