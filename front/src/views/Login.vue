@@ -34,7 +34,7 @@
                 placeholder="Senha"
                 v-model="senha"
               />
-            </div>
+           </div>
           </div>
         </div>
         <div class="text-center">
@@ -52,8 +52,7 @@
       </form>
     </div>
   </div>
-
-  <div class="container p-3 mb-5 mt-5 bg-body rounded sombra">
+  <div class="container p-3 mb-5 mt-5 bg-body rounded sombra" v-if="statusLogin">
     <!-- MINHA ÁREA -->
     <div class="col-12 text-center mt-3">
       <h2>Edite seus dados</h2>
@@ -74,14 +73,14 @@
           class="form-control"
           id="name"
           placeholder="Antônia Maria Souza"
-          v-model="nome"
+          v-model="nomecompleto"
         />
       </div>
       <div class="col-md-2">
         <label for="name" class="form-label"
           >Data de Nascimento: <strong class="error-color">*</strong></label
         >
-        <input type="date" class="form-control" id="name" v-model="data" />
+        <input type="date" class="form-control" id="name" v-model="data_nascimento" />
       </div>
       <div class="col-md-2">
         <label for="name" class="form-label"
@@ -118,7 +117,7 @@
           class="form-control pl-0"
           id="inputAddress"
           placeholder="(99) 9 9999-9999"
-          v-model="telefone01"
+          v-model="telefone_um"
         />
       </div>
       <div class="col-3">
@@ -128,7 +127,7 @@
           class="form-control"
           id="inputAddress"
           placeholder="(99) 9 9999-9999"
-          v-model="telefone02"
+          v-model="telefone_dois"
         />
       </div>
       <div class="col-12 infor">
@@ -164,7 +163,7 @@
         <label for="inputState" class="form-label"
           >Atendimento em cidades vizinhas? <strong class="error-color">*</strong></label
         >
-        <select id="inputState" class="form-select" v-model="atendeFora">
+        <select id="inputState" class="form-select" v-model="cidade_vizinha">
           <option>Sim</option>
           <option>Não</option>
         </select>
@@ -174,12 +173,33 @@
       </div>
       <div class="col-md-4">
         <label for="inputCity" class="form-label"
-          >Serviço 01: <strong class="error-color">*</strong></label
+          >Serviço: <strong class="error-color">*</strong></label
         >
-        <select id="inputState" class="form-select" v-model="serv">
-          <option>algo...</option>
-          <option>algo...</option>
-          <option>algo...</option>
+        <select id="inputState" class="form-select" v-model="servico">
+          <option>Agricultor</option>
+            <option>Alfaiate</option>
+            <option>Artesão</option>
+            <option>Babá</option>
+            <option>Cabeleleiro</option>
+            <option>Carpinteiro</option>
+            <option>Chaveiro</option>
+            <option>Confeiteira</option>
+            <option>Ponsultor</option>
+            <option>Cuidador de pets</option>
+            <option>Diarista</option>
+            <option>Doceira</option>
+            <option>Eletricista</option>
+            <option>Leiteiro</option>
+            <option>Encanador</option>
+            <option>Fotógrafo</option>
+            <option>Manicure</option>
+            <option>Mecânico</option>
+            <option>Metalúrgico</option>
+            <option>Organizador de festa</option>
+            <option>Pedreiro</option>
+            <option>Taxista</option>
+            <option>Reforço Escolar</option>
+            <option>Vaqueiro</option>
         </select>
       </div>
       <div class="col-12 mt-5">
@@ -188,9 +208,9 @@
           <button
             type="submit"
             class="btn-color-one color-secondary efeitoBtn"
-            v-on:click="inserirUser"
+            v-on:click="atualizarTrabalhador"
           >
-            Cadastrar
+            Salvar Alterações
           </button>
           <!-- </router-link> -->
         </div>
@@ -198,8 +218,7 @@
           <button
             type="button"
             class="color-secondary btn-sata efeitoBtn"
-            v-on:click="alerta = true"
-          >
+            v-on:click="alerta = true">
             Salvar Alterações
           </button>
         </div>
@@ -216,58 +235,72 @@ import axios from "axios";
 export default {
   data() {
     return {
-      
-      
-      nome: "",
+      statusLogin: "",
+      usuario: "",
       senha: "",
-      baseLogin: "http://localhost:3000/users/login",
-      
-      
-      alerta: false,
-      nome: null,
-      data: null,
-      email: null,
-      telefone1: null,
-      telefone2: null,
-      atendeFora: null,
-      serv: null,
-      senha: null,
-      selectedEstado: null,
-      selectedCidade: null,
+      baseLogin: "http://localhost:3000/usuarios/login",
 
+      alerta: false,
+       
+      nomecompleto: "",
+      data_nascimento: "",
+      sexo: "",
+      email: "",
+      telefone_um: "",
+      telefone_dois: "",
+      cidade_vizinha: "",
+      servico: "",
+      cidade: "",
+      estado: "",
       estados: [],
       municipios: [],
-      baseURI: "http://localhost:3000/funcionarios",
+      baseURI: "http://localhost:3000/trabalhadores",
     };
   },
   methods: {
-
     //Métodos relacionados ao login - Início
-    logar: function() {
-      axios.post(this.baseLogin, {
-        nome: this.nome,
-        senha: this.senha,
-      },
-      { withCredentials: true })
-      .then((result) => {
-        let userId = this.getCookie("userId");
-        if(userId){
-          localStorage.setItem("nome", JSON.stringfy(result.data));
-        }
-        this.$router.go();
-      });
+    logar: function () { 
+      axios
+        .post(
+          this.baseLogin,
+          {
+            usuario: this.usuario,
+            senha: this.senha,
+          },
+          { withCredentials: true }
+        )
+        .then((result) => {
+          let userId = this.getCookie("userId");
+
+          if (userId) {
+            localStorage.setItem("user", JSON.stringify(result.data));
+          }
+          this.statusLogin = userId;
+          
+          console.log(userId);
+          console.log(result.data);
+        });
     },
-    getCookie(nome) {
+    getCookie(name) {
       let match = document.cookie.match(new RegExp(name + "=([^;]+)"));
-        if(match) return match[1];
-        return;
+      if (match) return match[1];
+      return;
     },
     //Métodos relacionados ao login - Fim
-    
-    inserirUser() {
+
+    pegarTrabalhadores(){
+      axios.get(this.baseURI, {
+        
+      }).then((result) => {
+        console.log("Dados okay!");
+      });
+    },
+
+
+    atualizarTrabalhador() {
       axios
-        .post(this.baseURI, {
-          nome: this.nome,
+        .put(this.baseURI, {
+          nomecompleto: this.nome,
           data: this.data,
           email: this.email,
           telefone1: this.telefone1,
@@ -275,13 +308,11 @@ export default {
           selectedCidade: this.selectedCidade.nome,
           selectedEstado: this.selectedEstado.nome,
           atendeFora: this.atendeFora,
-          serv1: this.serv1,
-          serv2: this.serv2,
-          serv3: this.this3,
+          servico: this.servico,
           senha: this.senha,
         })
         .then((result) => {
-          this.handleFileUpload(result.data.id);
+          console.log(result.data);
         });
     },
     getcity() {
